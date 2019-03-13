@@ -1,0 +1,455 @@
+{
+  "current": {
+    "color_primary": "#204a80",
+    "color_secondary": "#dcdcdc",
+    "color_borders": "#e5e5e5",
+    "color_body_bg": "#ffffff",
+    "color_body_text": "#333333",
+    "color_footer_bg": "#f2f2f2",
+    "color_footer_text": "#636363",
+    "color_footer_social_link": "#bbbbbb",
+    "checkout_header_image": "",
+    "checkout_logo_image": "",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#197bbd",
+    "checkout_button_color": "#197bbd",
+    "checkout_error_color": "#e32c2b",
+    "logo_use_image": true,
+    "logo_max_width": "450",
+    "favicon_enable": true,
+    "footer_social_enable": false,
+    "footer_newsletter_enable": false,
+    "newsletter_form_action": "",
+    "cart_notes_enable": false,
+    "cart_vendor_enable": false,
+    "ajax_cart_method": "drawer",
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "checkout_use_storefront_logo": false,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "announcement_bar_enabled": false,
+          "announcement_bar_home_page_only": true,
+          "announcement_bar_text": "Announce something here",
+          "announcement_bar_link": "",
+          "logo": "shopify:\/\/shop_images\/SpiderWeb_logo.png",
+          "logo_max_width": 230,
+          "menu": "main-menu"
+        }
+      },
+      "characteristics": {
+        "type": "characteristics",
+        "blocks": {
+          "1551629069564": {
+            "type": "characteristics",
+            "settings": {
+              "char_img": "shopify:\/\/shop_images\/char_1.png",
+              "char_title": "Free Delivery",
+              "min_price": "from $50"
+            }
+          },
+          "1551630975982": {
+            "type": "characteristics",
+            "settings": {
+              "char_img": "shopify:\/\/shop_images\/char_2.png",
+              "char_title": "Free Delivery",
+              "min_price": "from $50"
+            }
+          },
+          "1551631047039": {
+            "type": "characteristics",
+            "settings": {
+              "char_img": "shopify:\/\/shop_images\/char_3.png",
+              "char_title": "Free Delivery",
+              "min_price": "from $50"
+            }
+          },
+          "1551631062710": {
+            "type": "characteristics",
+            "settings": {
+              "char_img": "shopify:\/\/shop_images\/char_4.png",
+              "char_title": "Free Delivery",
+              "min_price": "from $50"
+            }
+          }
+        },
+        "block_order": [
+          "1551629069564",
+          "1551630975982",
+          "1551631047039",
+          "1551631062710"
+        ],
+        "settings": {}
+      },
+      "popular_category": {
+        "type": "popular_category",
+        "settings": {}
+      },
+      "arrivals": {
+        "type": "arrivals",
+        "settings": {}
+      },
+      "best_sell": {
+        "type": "best_sell",
+        "settings": {}
+      },
+      "adverts": {
+        "type": "adverts",
+        "settings": {}
+      },
+      "trends": {
+        "type": "trends",
+        "settings": {}
+      },
+      "reviews": {
+        "type": "reviews",
+        "settings": {}
+      },
+      "recent_view": {
+        "type": "recent_view",
+        "settings": {}
+      },
+      "brands": {
+        "type": "brands",
+        "blocks": {
+          "1551783190527": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_1.jpg",
+              "Brand_title": "Bo & Play"
+            }
+          },
+          "1551783378478": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_2.jpg",
+              "Brand_title": "Google"
+            }
+          },
+          "1551783553423": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_3.jpg",
+              "Brand_title": "mi"
+            }
+          },
+          "1551783586448": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_4.jpg",
+              "Brand_title": "Samsung"
+            }
+          },
+          "1551783712902": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_5.jpg",
+              "Brand_title": "Apple"
+            }
+          },
+          "1551783744167": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_6.jpg",
+              "Brand_title": "Sony"
+            }
+          },
+          "1551783772964": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_7.jpg",
+              "Brand_title": "One+"
+            }
+          },
+          "1551783802252": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_8.jpg",
+              "Brand_title": "meizu"
+            }
+          }
+        },
+        "block_order": [
+          "1551783190527",
+          "1551783378478",
+          "1551783553423",
+          "1551783586448",
+          "1551783712902",
+          "1551783744167",
+          "1551783772964",
+          "1551783802252"
+        ],
+        "settings": {}
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      },
+      "home_banner": {
+        "type": "home_banner",
+        "settings": {
+          "banner_text": "new era of smartphones",
+          "pre_price": "530",
+          "new_price": "460",
+          "product_name": "Apple Iphone 6s",
+          "banner_bg": "shopify:\/\/shop_images\/banner_background.jpg",
+          "banner_image": "shopify:\/\/shop_images\/banner_product_e735ee6d-e77d-4147-890e-3a055c68e3f8.png"
+        }
+      },
+      "featured": {
+        "type": "featured",
+        "settings": {}
+      },
+      "home_banner2": {
+        "type": "home_banner2",
+        "blocks": {
+          "1551738439666": {
+            "type": "banner_slider",
+            "settings": {
+              "banner_img": "shopify:\/\/shop_images\/banner_2_product.png",
+              "category": "Laptops",
+              "product_name": "MacBook Airy",
+              "desp": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet."
+            }
+          },
+          "1551738586328": {
+            "type": "banner_slider",
+            "settings": {
+              "banner_img": "shopify:\/\/shop_images\/banner_2_product.png",
+              "category": "Laptops",
+              "product_name": "MacBook Airy",
+              "desp": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet."
+            }
+          },
+          "1551738607193": {
+            "type": "banner_slider",
+            "settings": {
+              "banner_img": "shopify:\/\/shop_images\/banner_product_e735ee6d-e77d-4147-890e-3a055c68e3f8.png",
+              "category": "Laptops",
+              "product_name": "MacBook Airy",
+              "desp": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet."
+            }
+          }
+        },
+        "block_order": [
+          "1551738439666",
+          "1551738586328",
+          "1551738607193"
+        ],
+        "settings": {
+          "banner_bg": "shopify:\/\/shop_images\/banner_2_background.jpg"
+        }
+      },
+      "1552066805552": {
+        "type": "home_banner",
+        "settings": {
+          "banner_text": "new era of smartphones",
+          "pre_price": "530",
+          "new_price": "460",
+          "product_name": "Apple Iphone 6s",
+          "banner_bg": "shopify:\/\/shop_images\/banner_background.jpg",
+          "banner_image": "shopify:\/\/shop_images\/banner_product_e735ee6d-e77d-4147-890e-3a055c68e3f8.png"
+        }
+      },
+      "1552066894145": {
+        "type": "characteristics",
+        "blocks": {
+          "1552066954855": {
+            "type": "characteristics",
+            "settings": {
+              "char_img": "shopify:\/\/shop_images\/char_3.png",
+              "char_title": "free domain",
+              "min_price": "from $50"
+            }
+          },
+          "1552066915097": {
+            "type": "characteristics",
+            "settings": {
+              "char_img": "shopify:\/\/shop_images\/char_1.png",
+              "char_title": "Free Delivery",
+              "min_price": "from $50"
+            }
+          },
+          "1552066989682": {
+            "type": "characteristics",
+            "settings": {
+              "char_img": "shopify:\/\/shop_images\/char_2.png",
+              "char_title": "Free Delivery",
+              "min_price": "from $50"
+            }
+          },
+          "1552066998937": {
+            "type": "characteristics",
+            "settings": {
+              "char_img": "shopify:\/\/shop_images\/char_4.png",
+              "char_title": "Free Delivery",
+              "min_price": "from $50"
+            }
+          }
+        },
+        "block_order": [
+          "1552066954855",
+          "1552066915097",
+          "1552066989682",
+          "1552066998937"
+        ],
+        "settings": {}
+      },
+      "1552067028806": {
+        "type": "featured",
+        "settings": {}
+      },
+      "1552067090920": {
+        "type": "popular_category",
+        "settings": {}
+      },
+      "1552067202481": {
+        "type": "home_banner2",
+        "blocks": {
+          "1552067233426": {
+            "type": "banner_slider",
+            "settings": {
+              "banner_img": "shopify:\/\/shop_images\/banner_2_product_342b0e51-c6a9-4cfa-bd04-43a7c365a060.png",
+              "category": "Laptops",
+              "product_name": "MacBook Airy",
+              "desp": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet."
+            }
+          },
+          "1552067272007": {
+            "type": "banner_slider",
+            "settings": {
+              "banner_img": "shopify:\/\/shop_images\/banner_2_product_342b0e51-c6a9-4cfa-bd04-43a7c365a060.png",
+              "category": "Laptops",
+              "product_name": "MacBook Airy",
+              "desp": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet."
+            }
+          },
+          "1552067287580": {
+            "type": "banner_slider",
+            "settings": {
+              "banner_img": "shopify:\/\/shop_images\/banner_2_product_342b0e51-c6a9-4cfa-bd04-43a7c365a060.png",
+              "category": "Laptops",
+              "product_name": "MacBook Airy",
+              "desp": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet."
+            }
+          }
+        },
+        "block_order": [
+          "1552067233426",
+          "1552067272007",
+          "1552067287580"
+        ],
+        "settings": {
+          "banner_bg": "shopify:\/\/shop_images\/banner_2_background.jpg"
+        }
+      },
+      "1552067310403": {
+        "type": "arrivals",
+        "settings": {}
+      },
+      "1552067374447": {
+        "type": "brands",
+        "blocks": {
+          "1552067404813": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_8.jpg",
+              "Brand_title": "Samsung"
+            }
+          },
+          "1552067433845": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_7.jpg",
+              "Brand_title": "Samsung"
+            }
+          },
+          "1552067440971": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_6.jpg",
+              "Brand_title": "Samsung"
+            }
+          },
+          "1552067447256": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_5.jpg",
+              "Brand_title": "Samsung"
+            }
+          },
+          "1552067453794": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_4.jpg",
+              "Brand_title": "Samsung"
+            }
+          },
+          "1552067462127": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_3.jpg",
+              "Brand_title": "Samsung"
+            }
+          },
+          "1552067468925": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_2.jpg",
+              "Brand_title": "Samsung"
+            }
+          },
+          "1552067475004": {
+            "type": "brand",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/brands_1.jpg",
+              "Brand_title": "Samsung"
+            }
+          }
+        },
+        "block_order": [
+          "1552067404813",
+          "1552067433845",
+          "1552067440971",
+          "1552067447256",
+          "1552067453794",
+          "1552067462127",
+          "1552067468925",
+          "1552067475004"
+        ],
+        "settings": {}
+      },
+      "1552067382553": {
+        "type": "newsletter",
+        "settings": {}
+      }
+    },
+    "content_for_index": [
+      "1552066805552",
+      "1552066894145",
+      "1552067028806",
+      "1552067090920",
+      "1552067202481",
+      "1552067310403",
+      "1552067374447",
+      "1552067382553"
+    ]
+  },
+  "presets": {
+    "Default": {}
+  }
+}

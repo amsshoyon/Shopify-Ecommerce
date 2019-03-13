@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="{{ shop.locale }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_accent }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+  
+    <link rel="shortcut icon" href="{{'favicon.ico' | asset_url}}" type="image/png">
+
+
+    {%- capture seo_title -%}
+    {{ page_title }}
+    {%- if current_tags -%}
+      {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {%- endif -%}
+    {%- if current_page != 1 -%}
+      &ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {%- endif -%}
+    {%- assign escaped_page_title = page_title | escape -%}
+    {%- unless escaped_page_title contains shop.name -%}
+      &ndash; {{ shop.name }}
+    {%- endunless -%}
+    {%- endcapture -%}
+    <title>{{ seo_title | strip }}</title>
+    
+    {%- if page_description -%}
+        <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {{ '//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' | stylesheet_tag }}
+    {{ '//use.fontawesome.com/releases/v5.6.3/css/all.css' | stylesheet_tag }}
+    {{ '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css' | stylesheet_tag }}
+
+    {{ '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' | script_tag }}
+    {{ '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' | script_tag }}
+    {{ '//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' | script_tag }}
+    
+    {{ 'auth.css' | asset_url | stylesheet_tag }}
+    
+    {{ content_for_header }} <!-- Header hook for plugins -->
+    
+</head>
+<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+
+    
+    {{ content_for_layout }} 
+
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+    "general": {
+        "404": {
+            "title": "404 Page Not Found",
+            "subtext": "The page you requested does not exist.",
+            "link": "Go Back To Home"
+        },
+        "account": {
+            "name": "My Account",
+            "reset_password": "Reset Password"
+
+        }
+    },
+
+    "navigation": {
+        "menu": "Menu",
+        "category": {
+            "all": "All Categories"
+        },
+        "cart": "Cart"
+    },
+
+    "banner": {
+        "shop": "Shop Now"
+    }
+
+}

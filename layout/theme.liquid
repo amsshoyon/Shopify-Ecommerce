@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="{{ shop.locale }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_accent }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+  
+    <link rel="shortcut icon" href="{{'favicon.ico' | asset_url}}" type="image/png">
+
+
+    {%- capture seo_title -%}
+    {{ page_title }}
+    {%- if current_tags -%}
+      {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {%- endif -%}
+    {%- if current_page != 1 -%}
+      &ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {%- endif -%}
+    {%- assign escaped_page_title = page_title | escape -%}
+    {%- unless escaped_page_title contains shop.name -%}
+      &ndash; {{ shop.name }}
+    {%- endunless -%}
+    {%- endcapture -%}
+    <title>{{ seo_title | strip }}</title>
+    
+    {%- if page_description -%}
+        <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {% if page_title != 'Challenge' %}
+
+        {{ 'include.css' | asset_url | stylesheet_tag }}
+        
+        {{ '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' | script_tag }}
+        {{ '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' | script_tag }}
+        {{ '//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' | script_tag }}
+
+        {{ 'owl.carousel.js' | asset_url | script_tag }}
+        {{ '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js' | script_tag }}
+        {{ '//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js' | script_tag }}
+        {{ 'custom.js' | asset_url | script_tag }}
+
+        {% if template == 'index' %}
+            {{ 'main_styles.css' | asset_url | stylesheet_tag }}
+            {{ 'responsive.css' | asset_url | stylesheet_tag }}
+        {% elsif template.name  == 'list-collections' or template.name == 'collection' or template.name == 'search' %}
+            {{ 'shop_styles.css' | asset_url | stylesheet_tag }}
+            {{ 'shop_responsive.css' | asset_url | stylesheet_tag }}
+        {% elsif template.name == 'product' %}
+            {{ 'product_styles.css' | asset_url | stylesheet_tag }}
+            {{ 'product_responsive.css' | asset_url | stylesheet_tag }}
+        {% elsif template.name == 'cart' %}
+            {{ 'cart_styles.css' | asset_url | stylesheet_tag }}
+            {{ 'cart_responsive.css' | asset_url | stylesheet_tag }}
+        {% elsif template.name == 'blog' %}
+            {{ 'blog_styles.css' | asset_url | stylesheet_tag }}
+            {{ 'blog_custom.css' | asset_url | stylesheet_tag }}
+        {% elsif template.name == 'article' %}
+            {{ 'blog_single_styles.css' | asset_url | stylesheet_tag }}
+            {{ 'blog_single_responsive.css' | asset_url | stylesheet_tag }}
+        {% elsif page_title | handle == 'contact-us' %}
+            {{ 'contact_styles.css' | asset_url | stylesheet_tag }}
+            {{ 'contact_responsive.css' | asset_url | stylesheet_tag }}      
+        {% else %}
+            {{ 'product_styles.css' | asset_url | stylesheet_tag }}
+        {% endif %} 
+    {% endif %}
+     
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+     
+    {{ content_for_header }} <!-- Header hook for plugins -->
+
+</head>
+<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+{% if template.name != '404' %}
+   
+    <div class="super_container">
+
+    {% if page_title != 'Challenge' %}
+        {% section 'header' %}
+    {% endif %}
+
+    {{ content_for_layout }}
+    
+   
+    {% if page_title != 'Challenge' %}
+       {% section 'newsletter' %}
+        {% section 'footer' %}
+    {% endif %}
+
+    </div>
+{% else %}
+
+    {{ content_for_layout }}
+
+{% endif %}
+
+
+
+
+<!--Javascript-->
+{{ 'main.js' | asset_url | script_tag }}
+
+
+<script>
+    //-------------------------------//
+    //------Klaviyo integration------//
+    //-------------------------------//
+
+    var _learnq = _learnq || [];
+
+    var item = {
+        Name: {
+            {
+                product.title | json
+            }
+        },
+        ProductID: {
+            {
+                product.id | json
+            }
+        },
+        Categories: {
+            {
+                product.collections | map: 'title' | json
+            }
+        },
+        ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+        URL: "{{ shop.secure_url }}{{ product.url }}",
+        Brand: {
+            {
+                product.vendor | json
+            }
+        },
+        Price: {
+            {
+                product.price | money | json
+            }
+        },
+        CompareAtPrice: {
+            {
+                product.compare_at_price_max | money | json
+            }
+        }
+    };
+
+    _learnq.push(['track', 'Viewed Product', item]);
+    _learnq.push(['trackViewedItem', {
+        Title: item.Name,
+        ItemId: item.ProductID,
+        Categories: item.Categories,
+        ImageUrl: item.ImageURL,
+        Url: item.URL,
+        Metadata: {
+            Brand: item.Brand,
+            Price: item.Price,
+            CompareAtPrice: item.CompareAtPrice
+        }
+  }]);
+
+</script>
+</body>
+</html>

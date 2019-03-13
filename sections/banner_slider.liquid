@@ -1,0 +1,99 @@
+	<div class="banner_2">
+		<div class="banner_2_background" style="background-image:url({{section.settings.banner_bg | img_url:'master'}})"></div>
+		<div class="banner_2_container">
+			<div class="banner_2_dots"></div>
+			<!-- Banner 2 Slider -->
+
+			<div class="owl-carousel owl-theme banner_2_slider">
+
+            {% for block in section.blocks %}
+				<!-- Banner 2 Slider Item -->
+				<div class="owl-item">
+					<div class="banner_2_item">
+						<div class="container fill_height">
+							<div class="row fill_height">
+								<div class="col-lg-4 col-md-6 fill_height">
+									<div class="banner_2_content">
+										<div class="banner_2_category">{{block.settings.category}}</div>
+										<div class="banner_2_title">{{block.settings.product_name}}</div>
+										<div class="banner_2_text">{{block.settings.desp}}</div>
+										<div class="rating_r rating_r_4 banner_2_rating"><i></i><i></i><i></i><i></i><i></i></div>
+										<div class="button banner_2_button"><a href="#">Explore</a></div>
+									</div>
+									
+								</div>
+								<div class="col-lg-8 col-md-6 fill_height">
+									<div class="banner_2_image_container">
+										<div class="banner_2_image"><img src="{{block.settings.banner_img | img_url:'grande'}}" alt=""></div>
+									</div>
+								</div>
+							</div>
+						</div>			
+					</div>
+				</div>
+            {% endfor %}
+
+			</div>
+		</div>
+	</div>
+	
+{% schema %}
+  {
+    "name": "banner slider",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "banner_bg",
+            "label": "Banner Background",
+            "info": "image should be 1000px x 300px"
+        }
+    ],
+    
+    
+    "blocks": [
+      {
+        "type": "banner_slider",
+        "name": "banner slider",
+        "limit": 4,
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "banner_img",
+                "label": "Banner Image",
+                "info": "image should be 1000px x 300px"
+            },
+            {
+                "type":      "text",
+                "id":        "category",
+                "label":     "Product Category",
+                "default":   "Laptops",
+                "info":      "Product Category",
+                "placeholder": "Product Category"
+            },
+            {
+                "type":      "text",
+                "id":        "product_name",
+                "label":     "Product Name",
+                "default":   "MacBook Airy",
+                "info":      "Product Name",
+                "placeholder": "Product Name"
+            },
+            {
+                "type":      "text",
+                "id":        "desp",
+                "label":     "Product Description",
+                "default":   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum laoreet.",
+                "info":      "Product Description",
+                "placeholder": "Product Description"
+            }  
+        ] 
+      }
+    ],
+    "presets": [
+            {
+                "name": "Banner Slider",
+                "category": "CTA button"
+            } 
+        ]
+  }
+{% endschema %}

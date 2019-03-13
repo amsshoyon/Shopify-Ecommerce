@@ -1,0 +1,188 @@
+
+
+{% if customer %}
+
+<div class="container emp-profile" style="margin-top:50px;">
+    <form method="post">
+        <div class="row align-items-center h-100">
+            <div class="col-md-4">
+                <div class="profile-img" style="display:none;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" name="file"/>
+                    </div>
+                </div>
+                <div class="profile-head text-center">
+                    <h5>
+                        {{customer.name}}
+                    </h5>
+                    <h6>
+                        {{customer.id}}
+                    </h6>
+                    <p class="proile-rating">{{customer.tags}}</p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Addresses</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content profile-tab" id="myTabContent" style="margin-top:30px;">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>User Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{customer.id}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Full Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{customer.name}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{customer.email}}</p>
+                                    </div>
+                                </div>
+                                {% if customer.phone %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Phone</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{customer.phone}}</p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% if customer.addresses_count > 0 %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Addresses</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                       {% for address in customer.addresses %}
+                                        <p>{{customer.street }}</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% if customer.default_address %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Default Address</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{customer.default_address}}</p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Total Spend</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{customer.total_spent | money}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                               
+                                {% for address in customer.addresses %}
+                                   
+                                    {% if customer.default_address %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Default Address</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{customer.default_address}}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    {% if customer_address.city %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>City: </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{customer_address.city}}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    {% if customer_address.company %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>company: </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{customer_address.company}}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                
+                                   {% if customer_address.country %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>country: </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{customer_address.country}}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                
+                                   {% if customer_address.country_code %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>country_code: </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{customer_address.country_code}}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    {% if customer_address.province %}
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>province: </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{customer_address.province}}</p>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    
+                                {% endfor %}
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>           
+</div>
+
+
+{% endif %}

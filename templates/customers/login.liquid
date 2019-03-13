@@ -1,0 +1,130 @@
+
+{% layout 'theme.auth' %}
+
+
+{{ customer.recover_password.success }}
+
+{% if shop.customer_accounts_enabled %}
+    {% if customer  %}
+        You are already logged in. please logout first. {{ 'Log Out' | customer_logout_link }}
+    {% else %}
+
+        <div id="login">
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            {% form 'customer_login' %}
+                               <input type="hidden" name="checkout_url" value="/" />
+                                <h3 class="text-center text-info">Customer Login</h3>
+                                {% if form.errors %}
+                                <div class="alert alert-danger">
+                                    {{ form.errors | default_errors }}
+                                </div>
+                                {% endif %}
+                                <div class="form-group">
+                                    <label for="customer_email" class="text-info">Email Address:</label><br>
+                                    <input type="email" name="customer[email]" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer_password" class="text-info">Password:</label><br>
+                                    <input type="password" name="customer[password]" class="form-control"/>
+                                </div>
+                                <div class="form-group" style="display:flex; justify-content:space-between;">
+                                    <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label>
+                                    <a href="#" onclick="showRecoverPasswordForm();return false;" style="    margin-left: 52%;">Forgot Password</a>
+                                    <br>
+                                    
+                                </div>
+                                <input type="submit" value="Sign In" class="btn btn-info btn-md" />
+                                <div id="register-link" style="display:flex;justify-content:space-between;">
+                                   <a href="/">Go Back to Home</a>
+                                    {{ 'Create an account' | customer_register_link }}
+                                </div>
+                            {% endform %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="recover_password" style="display: none;">
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            {% form 'recover_customer_password' %}
+                               <input type="hidden" name="checkout_url" value="/" />
+                                <h3 class="text-center text-info">Recover Password</h3>
+                                
+                                {% if form.errors %}
+                                    <div class="alert alert-danger">
+                                        {{ form.errors | default_errors }}
+                                    </div>
+                                {% endif %}
+                                
+                                {% if form.posted_successfully? %}
+                                    {% assign reset_success = true %}
+                                {% endif %}
+                                    
+                                <div class="form-group">
+                                    <label for="customer_email" class="text-info">Email Address:</label><br>
+                                    <input type="email" value="" name="email" id="recover-email" class="form-control" placeholder="{{ customer.recover_password.email}}" autocorrect="off" autocapitalize="off">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <a href="#" onclick="hideRecoverPasswordForm();return false;">Cancel</a>
+                                    <br>
+                                    <input type="submit" value="recover" class="btn btn-info btn-md" />
+
+                                </div>
+
+                                <div id="register-link" style="display:flex;justify-content:space-between;">
+                                   <a href="/">Go Back to Home</a>
+                                    {{ 'Create an account' | customer_register_link }}
+                                </div>
+                            {% endform %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+    
+{% endif %}
+
+{% if shop.checkout.guest_login %}
+<hr>
+
+<h2>{{ customer.login.guest_title }}</h2>
+
+{% form 'guest_login' %}
+  <input  type="submit" class="btn" value="{{ customer.login.guest_continue }}">
+{% endform %}
+{% endif %}
+      
+  
+<script>
+  /*
+    Show/hide the recover password form when requested.
+  */
+  function showRecoverPasswordForm() {
+    document.getElementById('recover_password').style.display = 'block';
+    document.getElementById('login').style.display='none';
+  }
+
+  function hideRecoverPasswordForm() {
+    document.getElementById('recover_password').style.display = 'none';
+    document.getElementById('login').style.display = 'block';
+  }
+
+  // Allow deep linking to the recover password form
+  if (window.location.hash == '#recover') { showRecoverPasswordForm() }
+
+  // reset_success is only true when the reset form is
+  {% if reset_success %}
+    document.getElementById('resetSuccess').style.display = 'block';
+  {% endif %}
+</script>
+

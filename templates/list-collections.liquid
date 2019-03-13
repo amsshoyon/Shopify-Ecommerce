@@ -1,0 +1,93 @@
+<style>
+.collection-title {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+</style>
+<div class="home">
+    <div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/shop_background.jpg"></div>
+    <div class="home_overlay"></div>
+    <div class="home_content d-flex flex-column align-items-center justify-content-center">
+        <h2 class="home_title">All Collections</h2>
+    </div>
+</div>
+
+<!-- Shop -->
+
+<div class="shop">
+    <div class="container">
+        <div class="row">
+
+            {% include 'sidebar' %}
+
+            <div class="col-lg-9">
+
+                <!-- Shop Content -->
+
+                <div class="shop_content">
+                    <div class="shop_bar clearfix">
+                        <div class="shop_product_count"><span>{{ shop.products_count }} </span> products Total</div>
+<!--
+                        <div class="shop_sorting">
+                            <span>Sort by:</span>
+                            <ul>
+                                <li>
+                                    <span class="sorting_text">highest rated<i class="fas fa-chevron-down"></i></span>
+                                    <ul>
+                                        <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "original-order" }'>highest rated</li>
+                                        <li class="shop_sorting_button" data-isotope-option='{ "sortBy": "name" }'>name</li>
+                                        <li class="shop_sorting_button"data-isotope-option='{ "sortBy": "price" }'>price</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+-->
+                    </div>
+
+                    {% for collection in collections %}
+                        {% if collection.products.size  >0 %}
+                            {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+                            <div class="collection-title">
+                                <h4>{{ collection_title }}</h4>
+                                <a href="{{ collection.url }}">More....</a>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="product_grid_border"></div>
+                                <!-- Product Item -->
+
+                                     {% for product in collection.products limit:5 %}
+                                        <div class="product_item is_new">
+                                            <div class="product_border"></div>
+                                            <div class="product_image d-flex flex-column align-items-center justify-content-center">
+                                                <img class="lazy" data-src="{{ product.featured_image.src | img_url: 'master' }}" alt="{{ product.featured_image.alt | escape }}" style="width:100%; height:115px;">
+                                            </div>
+                                            <div class="product_content">
+                                                <div class="product_pric">{{ product.price | money }}</div>
+                                                <div class="product_name"><div><a href="{{ product.url | within: collection }}" tabindex="0">{{ product.title }}</a></div></div>
+                                            </div>
+                                            <div class="product_fav"><i class="fas fa-heart"></i></div>
+<!--
+                                            <ul class="product_marks">
+                                                <li class="product_mark product_discount">-25%</li>
+                                                <li class="product_mark product_new">new</li>
+                                            </ul>
+-->
+                                        </div>
+                                    {% endfor %}
+                            </div>
+                        {% endif %}
+                            
+                    {% endfor %} 
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% section 'brands' %}

@@ -1,0 +1,77 @@
+<style>
+.owl-carousel.owl-loaded {
+    display: flex;
+    align-items: center;
+}
+.owl-theme.brands_slider{
+    display: flex;
+    align-items: center;
+}
+</style>
+	
+
+		
+				<!-- Brands -->
+
+	<div class="brands">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="brands_slider_container">
+						
+						<!-- Brands Slider -->
+
+						<div class="owl-carousel owl-theme brands_slider">
+							{% for block in section.blocks %}
+							<div class="owl-item">
+                                <div class="brands_item d-flex flex-column justify-content-center">
+                                    <img src="{{block.settings.brand_logo | img_url:'master'}}" alt="{{block.settings.Brand_title}}">
+                                </div>
+							</div>
+							{% endfor %}
+
+						</div>
+						
+						<!-- Brands Slider Navigation -->
+						<div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
+						<div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
+
+					</div>
+				</div> 
+			</div>
+		</div>
+	</div>
+	
+
+{% schema %}
+  {
+    "blocks": [
+      {
+        "type": "brand",
+        "name": "Brand",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "brand_logo",
+                "label": "Brand Logo"
+            },
+            {
+                "type":      "text",
+                "id":        "Brand_title",
+                "label":     "Brand Title",
+                "default":   "Samsung",
+                "info":      "Brand Title",
+                "placeholder": "Brand Title"
+            }
+        ]
+      }
+    ],
+    "presets": [
+        {
+            "name": "Brands",
+            "category": "CTA button"
+        } 
+    ]
+  }
+{% endschema %}
+

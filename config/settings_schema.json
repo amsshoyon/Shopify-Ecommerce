@@ -1,0 +1,58 @@
+[
+    {
+        "name": "theme_info",
+        "theme_name": "SpiderTech",
+        "theme_version": "1.0.0",
+        "theme_author": "Abdullah Al Mamun",
+        "theme_documentation_url": "https:\/\/github.com\/Shopify\/starter-theme",
+        "theme_support_url": "https:\/\/github.com\/Shopify\/starter-theme\/issues"
+    },
+
+    {
+        "name": "Logo",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "logo",
+                "label": "Logo image"
+            },
+            {
+                "type": "range",
+                "id": "logo_max_width",
+                "min": 50,
+                "max": 450,
+                "step": 10,
+                "unit": "px",
+                "label": "Custom logo width",
+                "default": 250
+            }
+        ]
+    },
+
+    {
+        "name": "Theme Header",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Background Colors"
+            },
+            {
+                "type": "color",
+                "id": "header_top_bar_bg",
+                "label": "Top bar Background",
+                "default": "#fafafa"
+            },
+            {
+                "type": "header",
+                "content": "Font colors"
+            },
+            {
+                "type": "color",
+                "id": "header_top_bar_text",
+                "label": "Top bar Font",
+                "default": "#000"
+            }
+
+        ]
+    }
+]

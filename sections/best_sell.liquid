@@ -1,0 +1,151 @@
+<!-- Best Sellers -->
+
+	<div class="best_sellers">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="tabbed_container">
+						<div class="tabs clearfix tabs-right">
+							<div class="new_arrivals_title">Hot Best Sellers</div>
+							<ul class="clearfix">
+								<li class="active">Top 20</li>
+								<li>Audio & Video</li>
+								<li>Laptops & Computers</li>
+							</ul>
+							<div class="tabs_line"><span></span></div>
+						</div>
+
+						<div class="bestsellers_panel panel active">
+
+							<!-- Best Sellers Slider -->
+
+							<div class="bestsellers_slider slider">
+
+								<!-- Best Sellers Item -->
+								{% for product in collections.all.products %}
+                                {% if product.tags contains 'Featured' %}
+								<div class="bestsellers_item discount">
+									<div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+										<div class="bestsellers_image">
+										    <img class="lazy" data-src="{{ product.featured_image | product_img_url: 'master' }}" alt="{{ product.title | escape  }}">
+										</div>
+										<div class="bestsellers_content">
+											<div class="bestsellers_category"><a href="{{product.type.url}}">{{ product.type  }}</a></div>
+											<div class="bestsellers_name"><a href="{{ product.url | within: collection }}">{{ product.title | escape  }}</a></div>
+											<div class="rating_r rating_r_4 bestsellers_rating"><i></i><i></i><i></i><i></i><i></i></div>
+											<div class="bestsellers_price discount">
+                                                {{ product.price | money }}
+                                                {% if product.compare_at_price %}
+                                                    <span>{{ product.compare_at_price | money }}</span>
+                                                {% endif %}
+											</div>
+										</div>
+									</div>
+									<div class="bestsellers_fav active"><i class="fas fa-heart"></i></div>
+									<ul class="bestsellers_marks">
+										<li class="bestsellers_mark bestsellers_discount">-25%</li>
+										<li class="bestsellers_mark bestsellers_new">new</li>
+									</ul>
+								</div>
+								{% endif %}
+                                {% endfor %} 
+
+								
+
+							</div>
+						</div>
+
+						<div class="bestsellers_panel panel">
+
+							<!-- Best Sellers Slider -->
+
+							<div class="bestsellers_slider slider">
+
+								<!-- Best Sellers Item -->
+								<!-- Best Sellers Item -->
+								{% for product in collections.accessories.products %}
+								<div class="bestsellers_item discount">
+									<div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+										<div class="bestsellers_image"><img src="{{ product.featured_image | product_img_url: 'master' }}" alt="{{ product.title | escape  }}"></div>
+										<div class="bestsellers_content">
+											<div class="bestsellers_category"><a href="#">{{ product.type  }}</a></div>
+											<div class="bestsellers_name"><a href="{{ product.url | within: collection }}">{{ product.title | escape  }}</a></div>
+											<div class="rating_r rating_r_4 bestsellers_rating"><i></i><i></i><i></i><i></i><i></i></div>
+											<div class="bestsellers_price discount">
+                                                {{ product.price | money }}
+                                                {% if product.compare_at_price %}
+                                                    <span>{{ product.compare_at_price | money }}</span>
+                                                {% endif %}
+											</div>
+										</div>
+									</div>
+									<div class="bestsellers_fav active"><i class="fas fa-heart"></i></div>
+									<ul class="bestsellers_marks">
+										<li class="bestsellers_mark bestsellers_discount">-25%</li>
+										<li class="bestsellers_mark bestsellers_new">new</li>
+									</ul>
+								</div>
+                                {% endfor %} 
+
+								
+
+							</div>
+						</div>
+
+						<div class="bestsellers_panel panel">
+
+							<!-- Best Sellers Slider -->
+
+							<div class="bestsellers_slider slider">
+
+								<!-- Best Sellers Item -->
+								<!-- Best Sellers Item -->
+								{% for product in collections.computers-laptops.products %}
+								<div class="bestsellers_item discount">
+									<div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+										<div class="bestsellers_image"><img src="{{ product.featured_image | product_img_url: 'master' }}" alt="{{ product.title | escape  }}"></div>
+										<div class="bestsellers_content">
+											<div class="bestsellers_category"><a href="#">{{ product.type  }}</a></div>
+											<div class="bestsellers_name"><a href="{{ product.url | within: collection }}">{{ product.title | escape  }}</a></div>
+											<div class="rating_r rating_r_4 bestsellers_rating"><i></i><i></i><i></i><i></i><i></i></div>
+											<div class="bestsellers_price discount">
+                                                {{ product.price | money }}
+                                                {% if product.compare_at_price %}
+                                                    <span>{{ product.compare_at_price | money }}</span>
+                                                {% endif %}
+											</div>
+										</div>
+									</div>
+									<div class="bestsellers_fav active"><i class="fas fa-heart"></i></div>
+									<ul class="bestsellers_marks">
+										<li class="bestsellers_mark bestsellers_discount">-25%</li>
+										<li class="bestsellers_mark bestsellers_new">new</li>
+									</ul>
+								</div>
+                                {% endfor %} 
+
+								
+
+							</div>
+						</div>
+					</div>
+						
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% schema %}
+    {
+
+      "presets": [
+        {
+          "name": "Best Sell",
+          "category": "CTA button"
+        } 
+      ]
+
+    }
+
+{% endschema %}

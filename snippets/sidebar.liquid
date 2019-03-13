@@ -1,0 +1,35 @@
+<div class="col-lg-3 col-md-3">
+
+    <!-- Shop Sidebar -->
+    <div class="shop_sidebar">
+        <div class="sidebar_section">
+            <div class="sidebar_title">Categories</div>
+            <ul class="sidebar_categories">
+               {% for collection in collections %}
+                <li><a href="{{collection.url}}">{{ collection.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+<!--
+        <div class="sidebar_section filter_by_section">
+            <div class="sidebar_title">Filter By</div>
+            <div class="sidebar_subtitle">Price</div>
+            <div class="filter_price">
+                <div id="slider-range" class="slider_range"></div>
+                <p>Range: </p>
+                <p><input type="text" id="amount" class="amount" readonly style="border:0; font-weight:bold;"></p>
+            </div>
+        </div>
+-->
+ 
+        <div class="sidebar_section">
+            <div class="sidebar_subtitle brands_subtitle">Brands</div>
+            <ul class="brands_list">
+                {% for vendor in shop.vendors %}
+                    <li class="brand">{{ vendor | link_to_vendor }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+ 
+</div> 

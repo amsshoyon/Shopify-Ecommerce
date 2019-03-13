@@ -1,0 +1,82 @@
+	<!-- Banner -->
+
+<div class="banner">
+    <div class="banner_background" style="background-image:url({{section.settings.banner_bg | img_url:'master'}})"></div>
+    <div class="container fill_height">
+        <div class="row fill_height">
+            <div class="banner_product_image"><img class="lazy" data-src="{{section.settings.banner_image | img_url:'large'}}" alt=""></div>
+            <div class="col-lg-5 offset-lg-4 fill_height">
+                <div class="banner_content">
+                    <h1 class="banner_text">{{section.settings.banner_text}}</h1>
+                    <div class="banner_price"><span>{{section.settings.pre_price | money}}</span>{{section.settings.new_price | money}}</div>
+                    <div class="banner_product_name">{{section.settings.product_name}}</div>
+                    <div class="button banner_button"><a href="/collections">{{'banner.shop' | t}}</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% schema %} 
+{
+	    "name": "Home Banner",
+	    "settings": [
+            {
+                "type":      "text",
+                "id":        "banner_text",
+                "label":     "Banner Text",
+                "default":   "new era of smartphones",
+                "info":      "About Your Site",
+                "placeholder": "Banner Text"
+            },
+            {
+                "type":      "text",
+                "id":        "pre_price",
+                "label":     "Previous Price",
+                "default":   "530",
+                "info":      "Item previous Price",
+                "placeholder": "Previous Price"
+            },
+            {
+                "type":      "text",
+                "id":        "new_price",
+                "label":     "New Price",
+                "default":   "460",
+                "info":      "Item New Price",
+                "placeholder": "New Price"
+            },
+            {
+                "type":      "text",
+                "id":        "product_name",
+                "label":     "Product Name",
+                "default":   "Apple Iphone 6s",
+                "info":      "Product Name",
+                "placeholder": "Product Name"
+            },
+            
+	        {
+                "type": "image_picker",
+                "id": "banner_bg",
+                "label": "Background Image",
+                "info": "image should be 1920px x 530px"
+            },
+            {
+                "type": "image_picker",
+                "id": "banner_image",
+                "label": "Banner Image",
+                "info": "image should be 520px x 560px"
+            }
+
+        ],
+        "presets": [
+            {
+                "name": "Home Banner 1",
+                "category": "CTA button"
+            } 
+        ]
+	}
+{% endschema %}

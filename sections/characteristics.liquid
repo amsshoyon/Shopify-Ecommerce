@@ -1,0 +1,75 @@
+<!-- Characteristics -->
+
+	<div class="characteristics">
+		<div class="container">
+			<div class="row">
+
+            
+{% for block in section.blocks %}
+				<!-- Char. Item -->
+				<div class="col-lg-3 col-md-6 char_col">
+					
+					<div class="char_item d-flex flex-row align-items-center justify-content-start">
+						<div class="char_icon"><img class="lazy" data-src="{{block.settings.char_img | img_url:'small'}}" alt=""></div>
+						<div class="char_content">
+							<div class="char_title">{{block.settings.char_title}}</div>
+							<div class="char_subtitle">{{block.settings.min_price}}</div>
+						</div>
+					</div>
+				</div>
+{% endfor %}
+
+
+				
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+{% schema %}
+  {
+    "blocks": [
+      {
+        "type": "characteristics",
+        "name": "characteristics",
+        "limit": 4,
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "char_img",
+                "label": "Characteristic Image",
+                "info": "image should be 50px x 50px"
+            },
+            {
+                "type":      "text",
+                "id":        "char_title",
+                "label":     "Title",
+                "default":   "Free Delivery",
+                "info":      "title",
+                "placeholder": "Title"
+            },
+            {
+                "type":      "text",
+                "id":        "min_price",
+                "label":     "Subtitle",
+                "default":   "from $50",
+                "info":      "subtitle",
+                "placeholder": "Subtitle"
+            } 
+        ]
+      }
+    ],
+    "presets": [
+        {
+            "name": "Characteristics",
+            "category": "CTA button"
+        } 
+    ]
+  }
+{% endschema %}

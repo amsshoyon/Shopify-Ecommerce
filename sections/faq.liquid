@@ -1,0 +1,68 @@
+
+ 
+<section class="faq-section" style="padding:100px 0px;">
+    <div class="container">
+        <div class="row">
+            <!-- ***** FAQ Start ***** -->
+            <div class="col-md-12">
+
+                <div class="faq-title text-center pb-3">
+                    <h2> Frequently Asked Questions </h2>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="faq" id="accordion">
+                   
+                   {% assign count = 1 %}
+                    {% for block in section.blocks %}
+                    <div class="card">
+                        <div class="card-header" id="faqHeading-{{block.id}}">
+                            <div class="mb-0">
+                                <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-{{block.id}}" data-aria-expanded="true" data-aria-controls="faqCollapse-{{block.id}}" style="font-weight:700">
+                                    <span class="badge">{{ count }}</span>{{block.settings.faq_title}}
+                                </h5>
+                            </div>
+                        </div>
+                        <div id="faqCollapse-{{block.id}}" class="collapse" aria-labelledby="faqHeading-{{block.id}}" data-parent="#accordion">
+                            <div class="card-body">
+                                <p>{{block.settings.faq_desp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% assign count = count | plus:1 %}
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ {% schema %}
+  {
+    "blocks": [
+      {
+        "type": "FAQs",
+        "name": "faq",
+        "settings": [
+            {
+                "type":      "text",
+                "id":        "faq_title",
+                "label":     "FAQ Title",
+                "default":   "Questions",
+                "info":      "FAQ Title",
+                "placeholder": "FAQ Title"
+            },
+            {
+                "type":      "text",
+                "id":        "faq_desp",
+                "label":     "FAQ Title",
+                "default":   " Answer: ---------------",
+                "info":      "FAQ Description",
+                "placeholder": "FAQ Description"
+            }
+        ]
+      }
+    ]
+  }
+{% endschema %}

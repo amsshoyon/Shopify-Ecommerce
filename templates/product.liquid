@@ -1,0 +1,83 @@
+
+	<!-- Single Product -->
+
+	<div class="single_product">
+		<div class="container">
+			<div class="row">
+
+            {% assign current_variant = product.selected_or_first_available_variant %}
+            {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+            
+				<!-- Images -->
+				<div class="col-lg-2 order-lg-1 order-2">
+					<ul class="image_list">
+					{% for image in product.images %}
+						<li data-image="{{ image.src | img_url: 'compact' }}">
+                            <img class="lazy" data-src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
+                        </li>
+				    {% endfor %}
+					</ul>
+				</div>
+
+				<!-- Selected Image -->
+				<div class="col-lg-5 order-lg-2 order-1">
+					<div class="image_selected"><img class="lazy" data-src="{{ featured_image | img_url: 'large' }}" alt="{{ image.alt | escape }}"></div>
+				</div>
+
+				<!-- Description -->
+				<div class="col-lg-5 order-3">
+					<div class="product_description">
+						<div class="product_category">{{ product.type }}</div>
+						<div class="product_name">{{ product.title }}</div>
+						<div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div>
+						<div class="product_text"><p>{{ product.description }}</p></div>
+						<div class="order_info d-flex flex-row">
+							<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+								<div class="clearfix" style="z-index: 1000;">
+
+									<!-- Product Quantity -->
+									<div class="row">
+                                           <div class="col-md-6 product_quantity clearfix">
+                                                <span>Quantity: </span>
+                                                <input id="Quantity" name="quantity" min="1" id="quantity_input" type="text" pattern="[0-9]*" value="1">
+                                                <div class="quantity_buttons">
+                                                    <div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fas fa-chevron-up"></i></div>
+                                                    <div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fas fa-chevron-down"></i></div>
+                                                </div>
+                                            </div>
+
+                                            <select required name="id" id="productSelect" class="form-control">
+                                                {% for variant in product.variants %}
+                                                  {% if variant.available %}
+                                                    <option value="{{ variant.id }}">
+                                                      {{ variant.title }} - {{ variant.price | money_with_currency }}
+                                                    </option>
+                                                  {% else %}
+                                                    <option disabled="disabled">
+                                                      {{ variant.title }} - sold out
+                                                    </option>
+                                                  {% endif %}
+                                                {% endfor %}
+                                            </select>
+                                                
+									</div>
+									
+
+								</div>
+
+								<div class="product_price">{{ current_variant.price | money }}</div>
+								<div class="button_container">
+									<button type="submit" name="add" id="AddToCart" class="button cart_button">Add to Cart</button>
+									<div class="product_fav"><i class="fas fa-heart"></i></div>
+								</div>
+								
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+{% section 'brands' %}
